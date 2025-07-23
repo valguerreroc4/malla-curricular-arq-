@@ -1,171 +1,135 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Malla Curricular Arquitectura</title>
+  <meta charset="UTF-8">
+  <title>Malla Curricular de Arquitectura</title>
   <style>
     body {
-      font-family: 'Segoe UI', sans-serif;
-      margin: 0;
-      padding: 2rem;
+      font-family: sans-serif;
+      padding: 20px;
       background-color: #fdfdfd;
-      color: #222;
     }
-
-    h1 {
-      text-align: center;
-      margin-bottom: 2rem;
-    }
-
-    .grid-container {
-      display: grid;
-      grid-template-columns: repeat(10, minmax(200px, 1fr));
-      gap: 1rem;
-      overflow-x: auto;
-    }
-
-    .ciclo {
-      border: 2px solid #ffcc00;
-      padding: 1rem;
-      background-color: #fffef2;
-      border-radius: 10px;
-    }
-
-    .ciclo h2 {
-      font-size: 1.1rem;
-      background-color: #ffcc00;
-      padding: 0.4rem;
-      border-radius: 5px;
-      text-align: center;
-      color: #000;
-    }
-
     .curso {
-      margin: 0.6rem 0;
-      padding: 0.4rem;
-      background-color: #f7f7f7;
-      border-left: 4px solid #ffc107;
-      border-radius: 5px;
+      padding: 10px;
+      margin: 5px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      display: inline-block;
+      cursor: pointer;
+      transition: background-color 0.3s;
     }
-
-    .curso strong {
-      display: block;
+    .curso.completado {
+      background-color: #d1f7c4;
       color: #000;
+      font-weight: bold;
     }
-
-    .curso small {
-      color: #666;
-    }
-
-    @media (max-width: 768px) {
-      .grid-container {
-        display: flex;
-        flex-direction: column;
-      }
+    h2 {
+      margin-top: 30px;
+      color: #333;
     }
   </style>
 </head>
 <body>
-  <h1>Malla Curricular - Arquitectura</h1>
-  <div class="grid-container">
+  <h1>Malla Curricular de Arquitectura</h1>
+  <div id="malla">
+    <h2>Ciclo 1</h2>
+    <div class="curso" data-id="geo1">Geometría Descriptiva (5)</div>
+    <div class="curso" data-id="dibujo1">Dibujo Arquitectónico (5)</div>
+    <div class="curso" data-id="intro">Introducción a la Arquitectura (3)</div>
+    <div class="curso" data-id="mat1">Matemáticas 1 (4)</div>
+    <div class="curso" data-id="orient">Orientación Universitaria (2)</div>
+    <div class="curso" data-id="com1">Comunicación Verbal 1 (3)</div>
 
-    <!-- CICLO 1 -->
-    <div class="ciclo">
-      <h2>Ciclo 1</h2>
-      <div class="curso"><strong>Proyectos 1</strong><small>6 créditos</small></div>
-      <div class="curso"><strong>Construcción 1</strong><small>2 créditos</small></div>
-      <div class="curso"><strong>Historia de la Arquitectura 1</strong><small>3 créditos</small></div>
-      <div class="curso"><strong>Geometría Descriptiva</strong><small>3 créditos</small></div>
-      <div class="curso"><strong>Matemática</strong><small>3 créditos</small></div>
-      <div class="curso"><strong>Introducción a la Arquitectura</strong><small>2 créditos</small></div>
-      <div class="curso"><strong>RCT</strong><small>2 créditos</small></div>
-    </div>
+    <h2>Ciclo 2</h2>
+    <div class="curso" data-id="geo2">Geometría Descriptiva 2 (3)</div>
+    <div class="curso" data-id="dibujo2">Dibujo Arquitectónico 2 (5)</div>
+    <div class="curso" data-id="hist1">Historia de la Arquitectura 1 (3)</div>
+    <div class="curso" data-id="mat2">Matemáticas 2 (4)</div>
+    <div class="curso" data-id="fisica">Física General (4)</div>
+    <div class="curso" data-id="com2">Comunicación Verbal 2 (3)</div>
 
-    <!-- CICLO 2 -->
-    <div class="ciclo">
-      <h2>Ciclo 2</h2>
-      <div class="curso"><strong>Proyectos 2</strong><small>6 créditos - Requiere Proyectos 1</small></div>
-      <div class="curso"><strong>Construcción 1</strong><small>2 créditos</small></div>
-      <div class="curso"><strong>Historia de la Arquitectura 2</strong><small>3 créditos - Requiere Historia 1</small></div>
-      <div class="curso"><strong>Física Aplicada</strong><small>3 créditos</small></div>
-      <div class="curso"><strong>Teoría del Diseño</strong><small>2 créditos</small></div>
-      <div class="curso"><strong>RCT 2</strong><small>2 créditos</small></div>
-    </div>
+    <h2>Ciclo 3</h2>
+    <div class="curso" data-id="proy1">Proyectos 1 (8)</div>
+    <div class="curso" data-id="hist2">Historia de la Arquitectura 2 (3)</div>
+    <div class="curso" data-id="comp1">Composición 1 (4)</div>
+    <div class="curso" data-id="constr1">Construcción 1 (2)</div>
+    <div class="curso" data-id="rct">Responsabilidad Ciudadana y Taller (2)</div>
+    <div class="curso" data-id="it">Introducción a la Teología (2)</div>
 
-    <!-- CICLO 3 -->
-    <div class="ciclo">
-      <h2>Ciclo 3</h2>
-      <div class="curso"><strong>Proyectos 3</strong><small>8 créditos - Requiere Proyectos 2</small></div>
-      <div class="curso"><strong>Historia de la Arquitectura 3</strong><small>3 créditos - Requiere Historia 2</small></div>
-      <div class="curso"><strong>Construcción 2</strong><small>2 créditos - Requiere Construcción 1</small></div>
-      <div class="curso"><strong>Teoría del Arte</strong><small>3 créditos</small></div>
-      <div class="curso"><strong>RCT 3</strong><small>2 créditos</small></div>
-    </div>
+    <h2>Ciclo 4</h2>
+    <div class="curso" data-id="proy2">Proyectos 2 (8)</div>
+    <div class="curso" data-id="hist3">Historia de la Arquitectura 3 (3)</div>
+    <div class="curso" data-id="comp2">Composición 2 (4)</div>
+    <div class="curso" data-id="estruct1">Estructuras 1 (2)</div>
+    <div class="curso" data-id="constr2">Construcción 2 (2)</div>
+    <div class="curso" data-id="hum">Humanidades (3)</div>
 
-    <!-- CICLO 4 -->
-    <div class="ciclo">
-      <h2>Ciclo 4</h2>
-      <div class="curso"><strong>Proyectos 4</strong><small>8 créditos - Requiere Proyectos 3</small></div>
-      <div class="curso"><strong>Historia de la Arquitectura 4</strong><small>3 créditos - Requiere Historia 3</small></div>
-      <div class="curso"><strong>Construcción 2</strong><small>2 créditos</small></div>
-      <div class="curso"><strong>Historia del Urbanismo</strong><small>2 créditos - Requiere Proyectos 1</small></div>
-      <div class="curso"><strong>Introducción a la Teología</strong><small>2 créditos - Requiere RCT</small></div>
-      <div class="curso"><strong>Curso Electivo</strong><small>4 créditos</small></div>
-    </div>
+    <h2>Ciclo 5</h2>
+    <div class="curso" data-id="proy3">Proyectos 3 (8)</div>
+    <div class="curso" data-id="hist4">Historia de la Arquitectura 4 (3)</div>
+    <div class="curso" data-id="visual">Lenguaje Visual (2)</div>
+    <div class="curso" data-id="taller">Taller de Crítica Arquitectónica (2)</div>
+    <div class="curso" data-id="huella">Huella y Territorio (2)</div>
+    <div class="curso" data-id="urbanhist">Historia del Urbanismo (3)</div>
 
-    <!-- CICLO 5 -->
-    <div class="ciclo">
-      <h2>Ciclo 5</h2>
-      <div class="curso"><strong>Proyectos 5</strong><small>8 créditos - Requiere Proyectos 4</small></div>
-      <div class="curso"><strong>Estética</strong><small>2 créditos - Requiere Historia 4 + RCT</small></div>
-      <div class="curso"><strong>Estructuras 2</strong><small>2 créditos - Requiere Estructuras 1 + Construcción 1</small></div>
-      <div class="curso"><strong>Urbanismo 1</strong><small>4 créditos - Requiere Historia del Urbanismo</small></div>
-      <div class="curso"><strong>Teología y vida cristiana</strong><small>2 créditos - Requiere Introducción a la Teología</small></div>
-      <div class="curso"><strong>Curso Electivo</strong><small>4 créditos</small></div>
-    </div>
+    <h2>Ciclo 6</h2>
+    <div class="curso" data-id="proy4">Proyectos 4 (8)</div>
+    <div class="curso" data-id="estetica">Estética (2)</div>
+    <div class="curso" data-id="estruct2">Estructuras 2 (2)</div>
+    <div class="curso" data-id="urban1">Urbanismo 1 (4)</div>
+    <div class="curso" data-id="teo2">Teología y Vida Cristiana (2)</div>
+    <div class="curso" data-id="electivo6">Curso Electivo (4)</div>
 
-    <!-- CICLO 6 -->
-    <div class="ciclo">
-      <h2>Ciclo 6</h2>
-      <div class="curso"><strong>Proyectos 6</strong><small>8 créditos - Requiere Proyectos 5</small></div>
-      <div class="curso"><strong>EGA</strong><small>3 créditos - Requiere Proyectos 3</small></div>
-      <div class="curso"><strong>Urbanismo 2</strong><small>4 créditos - Requiere Urbanismo 1</small></div>
-      <div class="curso"><strong>Construcción 3</strong><small>2 créditos - Requiere Construcción 2</small></div>
-      <div class="curso"><strong>Instalaciones 1</strong><small>2 créditos - Requiere Proyectos 4 + Construcción 1 + Estructuras 1</small></div>
-      <div class="curso"><strong>Doctrina Social de la Iglesia</strong><small>2 créditos - Requiere Teología y Vida Cristiana</small></div>
-    </div>
+    <h2>Ciclo 7</h2>
+    <div class="curso" data-id="proy5">Proyectos 5 (8)</div>
+    <div class="curso" data-id="ega">EGA (3)</div>
+    <div class="curso" data-id="urban2">Urbanismo 2 (4)</div>
+    <div class="curso" data-id="constr3">Construcción 3 (2)</div>
+    <div class="curso" data-id="inst1">Instalaciones 1 (2)</div>
+    <div class="curso" data-id="dsi">Doctrina Social de la Iglesia (2)</div>
 
-    <!-- CICLO 7 -->
-    <div class="ciclo">
-      <h2>Ciclo 7</h2>
-      <div class="curso"><strong>Proyectos 7</strong><small>8 créditos - Requiere Proyectos 6 + Urbanismo 2</small></div>
-      <div class="curso"><strong>Fabricación 1</strong><small>4 créditos - Requiere Proyectos 4 + Construcción 3 + Estructuras 2</small></div>
-      <div class="curso"><strong>Urbanismo 3</strong><small>4 créditos - Requiere Urbanismo 2</small></div>
-      <div class="curso"><strong>Estructuras 3</strong><small>2 créditos - Requiere Estructuras 2</small></div>
-      <div class="curso"><strong>Instalaciones 2</strong><small>2 créditos - Requiere Instalaciones 1</small></div>
-      <div class="curso"><strong>Curso Electivo</strong><small>4 créditos</small></div>
-    </div>
+    <h2>Ciclo 8</h2>
+    <div class="curso" data-id="proy6">Proyectos 6 (8)</div>
+    <div class="curso" data-id="fabrica1">Fabricación 1 (4)</div>
+    <div class="curso" data-id="urban3">Urbanismo 3 (4)</div>
+    <div class="curso" data-id="estruct3">Estructuras 3 (2)</div>
+    <div class="curso" data-id="inst2">Instalaciones 2 (2)</div>
+    <div class="curso" data-id="electivo8">Curso Electivo (4)</div>
 
-    <!-- CICLO 8 -->
-    <div class="ciclo">
-      <h2>Ciclo 8</h2>
-      <div class="curso"><strong>Proyectos 8</strong><small>8 créditos - Requiere Proyectos 7 + Urbanismo 3</small></div>
-      <div class="curso"><strong>IPF</strong><small>2 créditos - Requiere Proyectos 7</small></div>
-      <div class="curso"><strong>Diseño Aplicado 1</strong><small>4 créditos - Requiere Proyectos 6 + Construcción 3 + Instalaciones 2 + Estructuras 3</small></div>
-      <div class="curso"><strong>Instalaciones 3</strong><small>2 créditos - Requiere Instalaciones 2</small></div>
-      <div class="curso"><strong>Paisaje</strong><small>4 créditos - Requiere Urbanismo 2</small></div>
-    </div>
+    <h2>Ciclo 9</h2>
+    <div class="curso" data-id="proy7">Proyectos 7 (8)</div>
+    <div class="curso" data-id="fabrica2">Fabricación 2 (4)</div>
+    <div class="curso" data-id="paisaje">Paisaje (4)</div>
+    <div class="curso" data-id="da1">Diseño Aplicado 1 (4)</div>
+    <div class="curso" data-id="inst3">Instalaciones 3 (2)</div>
 
-    <!-- CICLO 9 -->
-    <div class="ciclo">
-      <h2>Ciclo 9</h2>
-      <div class="curso"><strong>Diseño Aplicado 2</strong><small>4 créditos - Requiere Proyectos 7 + Diseño Aplicado 1</small></div>
-      <div class="curso"><strong>Sostenibilidad</strong><small>4 créditos - Requiere Proyectos 6 + Construcción 3</small></div>
-      <div class="curso"><strong>Legislación en Arquitectura</strong><small>3 créditos - Requiere Proyectos 6</small></div>
-      <div class="curso"><strong>Deontología</strong><small>1 crédito - Requiere Proyectos 6</small></div>
-    </div>
-
+    <h2>Ciclo 10</h2>
+    <div class="curso" data-id="proy8">Proyectos 8 (8)</div>
+    <div class="curso" data-id="ipf">IPF (2)</div>
+    <div class="curso" data-id="da2">Diseño Aplicado 2 (4)</div>
+    <div class="curso" data-id="sosten">Sostenibilidad (4)</div>
+    <div class="curso" data-id="legal">Legislación en Arquitectura (3)</div>
+    <div class="curso" data-id="deonto">Deontología (1)</div>
   </div>
+
+  <script>
+    const cursos = document.querySelectorAll('.curso');
+    cursos.forEach(curso => {
+      const id = curso.dataset.id;
+      const estado = localStorage.getItem(id);
+      if (estado === 'completado') {
+        curso.classList.add('completado');
+      }
+
+      curso.addEventListener('click', () => {
+        curso.classList.toggle('completado');
+        if (curso.classList.contains('completado')) {
+          localStorage.setItem(id, 'completado');
+        } else {
+          localStorage.removeItem(id);
+        }
+      });
+    });
+  </script>
 </body>
 </html>
